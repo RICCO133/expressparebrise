@@ -1,0 +1,398 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Pare-Brise à Domicile</title>
+<style>
+/* Layout: one column on phones, a split hero on wide screens, then quiet sections with generous rhythm. */
+:root {
+  --bg: #F6F4EF;
+  --surface: #FFFFFF;
+  --ink: #0E1A2B;
+  --muted: #4A5568;
+  --accent: #0F6E7A;
+  --accent-ink: #FFFFFF;
+  --line: #DCD8CE;
+  --signal: #F2A900;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Instrument Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1421;
+    --surface: #132034;
+    --ink: #F3F1EC;
+    --muted: #AEB7C4;
+    --accent: #5FC3CF;
+    --accent-ink: #0B1421;
+    --line: #26344A;
+    --signal: #F2B93B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1421;
+  --surface: #132034;
+  --ink: #F3F1EC;
+  --muted: #AEB7C4;
+  --accent: #5FC3CF;
+  --accent-ink: #0B1421;
+  --line: #26344A;
+  --signal: #F2B93B;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: hidden;
+}
+img { max-width: 100%; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0 0 12px; font-weight: 600; }
+h1 { font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.55rem, 4vw, 2.2rem); }
+h3 { font-size: 1.15rem; font-family: var(--font-body); font-weight: 600; }
+p { margin: 0 0 12px; max-width: 65ch; }
+.eyebrow { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 600; margin: 0 0 10px; }
+.lead { font-size: 1.1rem; color: var(--muted); }
+
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 18px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.02em; }
+.brand svg { height: 64px; width: auto; flex: none; }
+.brand span { line-height: 1.1; }
+.phone { color: var(--ink); text-decoration: none; font-weight: 600; }
+
+.hero { display: grid; gap: 32px; padding-block: 28px 56px; align-items: center; }
+@media (min-width: 880px) { .hero { grid-template-columns: 1.05fr 0.95fr; padding-block: 48px 72px; } }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.btn {
+  display: inline-block; padding: 14px 22px; border-radius: 6px; font: inherit; font-weight: 600;
+  text-decoration: none; border: 2px solid var(--accent); cursor: pointer; text-align: center;
+}
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+.reassure { margin-top: 18px; font-size: 0.92rem; color: var(--muted); }
+
+.quote-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+.quote-card h3 { margin-bottom: 4px; }
+.quote-card form { display: grid; gap: 12px; margin-top: 14px; }
+label { display: grid; gap: 4px; font-size: 0.9rem; color: var(--muted); }
+input, select {
+  font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 11px 12px; width: 100%; min-width: 0;
+}
+.form-note { font-size: 0.85rem; color: var(--muted); margin: 0; }
+.form-status { font-weight: 600; color: var(--accent); margin: 0; min-height: 1.4em; }
+
+.strip { border-block: 1px solid var(--line); padding-block: 18px; font-size: 0.95rem; color: var(--muted); }
+.strip .wrap { display: flex; flex-wrap: wrap; gap: 10px 28px; }
+
+section.block { padding-block: 56px; }
+.steps { display: grid; gap: 16px; margin-top: 28px; }
+@media (min-width: 760px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; min-width: 0; }
+.step .tag { font-size: 0.8rem; color: var(--accent); font-weight: 600; margin: 0 0 6px; }
+
+.benefits { display: grid; gap: 28px; margin-top: 28px; }
+@media (min-width: 760px) { .benefits { grid-template-columns: 1fr 1fr; } }
+.benefit { border-top: 2px solid var(--accent); padding-top: 14px; min-width: 0; }
+
+.coverage { background: var(--surface); border-radius: 12px; padding: 28px; display: grid; gap: 20px; }
+@media (min-width: 760px) { .coverage { grid-template-columns: 1fr 1fr; align-items: center; padding: 40px; } }
+.zones { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.zones li { border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 0.92rem; }
+
+.faq details { border-bottom: 1px solid var(--line); padding-block: 14px; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq details p { margin-top: 10px; color: var(--muted); }
+
+.final { text-align: left; padding-block: 56px 72px; border-top: 1px solid var(--line); }
+footer { border-top: 1px solid var(--line); padding-block: 22px; font-size: 0.85rem; color: var(--muted); }
+
+.consent {
+  position: fixed; z-index: 20; bottom: env(safe-area-inset-bottom, 0px);
+  left: max(16px, env(safe-area-inset-left, 0px)); right: max(16px, env(safe-area-inset-right, 0px));
+  max-width: 560px; margin: 0 auto 12px; padding: 18px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  display: grid; gap: 14px;
+}
+.consent p { margin: 0; font-size: 0.92rem; color: var(--muted); max-width: none; }
+.consent a { color: var(--accent); }
+.consent-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.consent-actions .btn { padding: 11px 12px; font-size: 0.95rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero > * { animation: rise 0.6s ease both; }
+  .hero > *:nth-child(2) { animation-delay: 0.08s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+</style>
+
+<header class="wrap topbar">
+  <div class="brand">
+    <svg viewBox="0 0 150 86" role="img" aria-label="Express Pare-Brise, logo EPB">
+      <defs>
+        <radialGradient id="g-epb-1" cx="35%" cy="30%" r="75%">
+          <stop offset="0%" stop-color="#2F6FB8"/><stop offset="100%" stop-color="#0B3D7E"/>
+        </radialGradient>
+        <radialGradient id="g-epb-2" cx="35%" cy="30%" r="75%">
+          <stop offset="0%" stop-color="#3DAA5E"/><stop offset="100%" stop-color="#17703A"/>
+        </radialGradient>
+        <radialGradient id="g-epb-3" cx="35%" cy="30%" r="75%">
+          <stop offset="0%" stop-color="#FF9A40"/><stop offset="100%" stop-color="#E0620F"/>
+        </radialGradient>
+      </defs>
+      <circle cx="25" cy="25" r="23" fill="url(#g-epb-1)"/>
+      <circle cx="75" cy="25" r="23" fill="url(#g-epb-2)"/>
+      <circle cx="125" cy="25" r="23" fill="url(#g-epb-3)"/>
+      <g fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="26" text-anchor="middle" dominant-baseline="central">
+        <text x="25" y="26">E</text>
+        <text x="75" y="26">P</text>
+        <text x="125" y="26">B</text>
+      </g>
+      <text x="75" y="78" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="13" text-anchor="middle">Express Pare-Brise</text>
+    </svg>
+  </div>
+  <a class="phone" href="tel:+33650605682">06 50 60 56 82</a>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Remplacement à domicile · Île-de-France</p>
+      <h1>Votre pare-brise remplacé chez vous, sans bouger</h1>
+      <p class="lead">Nous venons à votre domicile ou à votre lieu de travail avec le pare-brise adapté à votre véhicule. Vous gagnez du temps, et nous nous occupons de tout.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#devis">Obtenir mon devis gratuit</a>
+        <a class="btn btn-ghost" href="#comment">Voir comment ça marche</a>
+      </div>
+      <p class="reassure">Devis gratuit et sans engagement. Réponse rapide par notre équipe.</p>
+    </div>
+
+    <aside class="quote-card" id="devis" aria-labelledby="devis-title">
+      <h3 id="devis-title">Recevez votre devis</h3>
+      <p class="form-note">Renseignez les informations ci-dessous. Nous vous recontactons pour confirmer le créneau.</p>
+      <form id="quote-form" novalidate>
+        <label>Marque et modèle du véhicule
+          <input name="vehicule" type="text" placeholder="Ex. Peugeot 308 2019" required autocomplete="off">
+        </label>
+        <label>Type de dommage
+          <select name="dommage" required>
+            <option value="">Choisir</option>
+            <option>Fissure ou impact</option>
+            <option>Pare-brise cassé</option>
+            <option>Remplacement préventif ou autre</option>
+          </select>
+        </label>
+        <label>Code postal du lieu d'intervention
+          <input name="cp" type="text" inputmode="numeric" maxlength="5" placeholder="75011" required>
+        </label>
+        <label>Téléphone
+          <input name="tel" type="tel" placeholder="06 00 00 00 00" required autocomplete="tel">
+        </label>
+        <button class="btn btn-primary" type="submit">Envoyer ma demande</button>
+        <p class="form-note">En envoyant ce formulaire, vous acceptez que vos données soient utilisées pour traiter votre demande. Voir notre <a href="#confidentialite">politique de confidentialité</a>.</p>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </aside>
+  </div>
+</main>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Intervention à domicile</span>
+    <span>Devis gratuit</span>
+    <span>Zone Île-de-France et jusqu'à 2 h autour</span>
+    <span>Démarches assurance prises en charge</span>
+  </div>
+</div>
+
+<section class="block wrap" id="comment">
+  <p class="eyebrow">Le processus</p>
+  <h2>Quatre étapes, sans déplacement</h2>
+  <div class="steps">
+    <article class="step">
+      <p class="tag">Étape 1</p>
+      <h3>Vous nous contactez</h3>
+      <p>Un formulaire ou un appel suffit. Vous décrivez le dommage et votre véhicule.</p>
+    </article>
+    <article class="step">
+      <p class="tag">Étape 2</p>
+      <h3>Nous confirmons votre créneau</h3>
+      <p>Nous fixons un rendez-vous à l'heure qui vous convient, y compris en soirée ou le samedi.</p>
+    </article>
+    <article class="step">
+      <p class="tag">Étape 3</p>
+      <h3>Intervention chez vous</h3>
+      <p>Notre technicien arrive avec le vitrage adapté et remplace votre pare-brise sur place.</p>
+    </article>
+    <article class="step">
+      <p class="tag">Étape 4</p>
+      <h3>Contrôle et facture</h3>
+      <p>Vous vérifiez le résultat ensemble, puis nous gérons les démarches avec votre assurance.</p>
+    </article>
+  </div>
+</section>
+
+<section class="block wrap" aria-labelledby="gains">
+  <p class="eyebrow">Les avantages</p>
+  <h2 id="gains">Un remplacement pensé pour votre emploi du temps</h2>
+  <div class="benefits">
+    <div class="benefit">
+      <h3>Du temps gagné</h3>
+      <p>Aucun trajet jusqu'au garage et aucune attente en salle d'attente. Vous reprenez votre journée pendant que nous travaillons.</p>
+    </div>
+    <div class="benefit">
+      <h3>Des vitrages de qualité</h3>
+      <p>Nous installons des pare-brise adaptés à chaque véhicule, avec une pose soignée et un contrôle final.</p>
+    </div>
+    <div class="benefit">
+      <h3>Les démarches simplifiées</h3>
+      <p>Nous prenons en charge la relation avec votre assurance pour vous laisser l'esprit tranquille.</p>
+    </div>
+    <div class="benefit">
+      <h3>Un devis clair</h3>
+      <p>Vous connaissez le montant avant toute intervention, sans frais cachés.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <div class="coverage">
+    <div>
+      <p class="eyebrow">Zone d'intervention</p>
+      <h2>Nous nous déplaçons dans toute l'Île-de-France</h2>
+      <p>Paris et la petite couronne, ainsi que les communes situées jusqu'à 2 h autour de la capitale.</p>
+    </div>
+    <ul class="zones" aria-label="Exemples de secteurs couverts">
+      <li>Paris</li>
+      <li>Hauts-de-Seine</li>
+      <li>Seine-Saint-Denis</li>
+      <li>Val-de-Marne</li>
+      <li>Yvelines</li>
+      <li>Essonne</li>
+      <li>Val-d'Oise</li>
+      <li>Seine-et-Marne</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block wrap faq" aria-labelledby="faq-title">
+  <p class="eyebrow">Questions fréquentes</p>
+  <h2 id="faq-title">Vous avez une question ?</h2>
+  <details>
+    <summary>Combien de temps dure l'intervention ?</summary>
+    <p>La plupart des remplacements se font en une à deux heures sur place.</p>
+  </details>
+  <details>
+    <summary>Mon assurance prend-elle en charge le remplacement ?</summary>
+    <p>De nombreux contrats couvrent le bris de glace. Nous vérifions avec vous les conditions de votre contrat avant l'intervention.</p>
+  </details>
+  <details>
+    <summary>Puis-je attendre que le pare-brise soit sec pour rouler ?</summary>
+    <p>Le produit de pose demande un temps de durcissement. Notre technicien vous indique la durée à respecter.</p>
+  </details>
+</section>
+
+<section class="wrap final">
+  <h2>Prêt à retrouver un véhicule en pleine forme ?</h2>
+  <p class="lead">Envoyez votre demande, nous vous répondons rapidement avec un devis gratuit.</p>
+  <a class="btn btn-primary" href="#devis">Demander mon devis</a>
+</section>
+
+<section class="block wrap" id="contact" aria-labelledby="contact-title">
+  <p class="eyebrow">Nous contacter</p>
+  <h2 id="contact-title">Express Pare-Brise</h2>
+  <p>14 rue Delesseux, 75019 Paris</p>
+  <p>Téléphone : <a href="tel:+33650605682">06 50 60 56 82</a></p>
+  <p>Email : <a href="mailto:contact@expressparebrise.io">contact@expressparebrise.io</a></p>
+</section>
+
+<section class="block wrap" id="mentions-legales" aria-labelledby="ml-title">
+  <p class="eyebrow">Informations légales</p>
+  <h2 id="ml-title">Mentions légales</h2>
+  <p><strong>Éditeur du site :</strong> Express Pare-Brise, 14 rue Delesseux, 75019 Paris. Forme juridique et capital : [à compléter]. SIREN : 131 644 130. RCS ou RM : [à compléter]. Numéro de TVA intracommunautaire : [à compléter].</p>
+  <p><strong>Directeur de la publication :</strong> [à compléter].</p>
+  <p><strong>Hébergement :</strong> [à compléter : nom, adresse et contact de l'hébergeur].</p>
+  <p><strong>Contact :</strong> 06 50 60 56 82, contact@expressparebrise.io, ou via le formulaire de demande de devis.</p>
+  <p><strong>Propriété intellectuelle :</strong> les textes, visuels et éléments graphiques de ce site sont protégés. Toute reproduction sans autorisation écrite préalable est interdite.</p>
+  <p><strong>Responsabilité :</strong> les informations présentées sur ce site sont fournies à titre indicatif. Express Pare-Brise s'efforce de les maintenir à jour sans pouvoir garantir l'absence d'erreur.</p>
+</section>
+
+<section class="block wrap" id="confidentialite" aria-labelledby="rgpd-title">
+  <p class="eyebrow">Données personnelles</p>
+  <h2 id="rgpd-title">Politique de confidentialité</h2>
+  <p><strong>Responsable du traitement :</strong> Express Pare-Brise, 14 rue Delesseux, 75019 Paris.</p>
+  <p><strong>Données collectées :</strong> lorsque vous demandez un devis, nous recueillons le modèle de votre véhicule, le type de dommage, le code postal du lieu d'intervention et votre numéro de téléphone.</p>
+  <p><strong>Finalité :</strong> traiter votre demande, vous recontacter pour fixer un rendez-vous et établir votre devis.</p>
+  <p><strong>Base légale :</strong> mesures précontractuelles prises à votre demande.</p>
+  <p><strong>Durée de conservation :</strong> [à valider, par exemple 3 ans après le dernier contact]. Les données d'un devis non suivi d'intervention sont supprimées à l'issue de cette durée.</p>
+  <p><strong>Destinataires :</strong> les équipes internes d'Express Pare-Brise et les prestataires techniques strictement nécessaires au traitement de votre demande : [à compléter].</p>
+  <p><strong>Cookies et mesure d'audience :</strong> le site dépose des cookies de mesure d'audience uniquement si vous les acceptez via la bannière. Vous pouvez modifier votre choix à tout moment en effaçant les données du site dans votre navigateur. Outils concernés : [à compléter selon les outils réellement installés].</p>
+  <p><strong>Vos droits :</strong> vous pouvez accéder à vos données, les faire rectifier ou effacer, vous opposer à leur traitement et demander leur portabilité. Adressez votre demande par email à contact@expressparebrise.io, ou par écrit à Express Pare-Brise, 14 rue Delesseux, 75019 Paris. Vous pouvez aussi introduire une réclamation auprès de la CNIL (cnil.fr).</p>
+</section>
+
+<footer class="wrap">
+  <p>Express Pare-Brise · 14 rue Delesseux, 75019 Paris · <a href="#mentions-legales">Mentions légales</a> · <a href="#confidentialite">Politique de confidentialité</a></p>
+</footer>
+
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title" aria-describedby="consent-desc" hidden>
+  <p id="consent-title"><strong>Vos choix de confidentialité</strong></p>
+  <p id="consent-desc">Nous utilisons des cookies de mesure d'audience pour améliorer ce site. Vous pouvez accepter ou refuser ces cookies. Le refus n'empêche pas l'envoi d'une demande de devis. Plus d'informations dans notre <a href="#confidentialite">politique de confidentialité</a>.</p>
+  <div class="consent-actions">
+    <button class="btn btn-ghost" type="button" data-consent="refused">Tout refuser</button>
+    <button class="btn btn-primary" type="button" data-consent="accepted">Tout accepter</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById("quote-form");
+  var status = form.querySelector(".form-status");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var missing = Array.prototype.some.call(form.querySelectorAll("[required]"), function (el) {
+      return !el.value.trim();
+    });
+    if (missing) {
+      status.textContent = "Merci de compléter les champs obligatoires.";
+      return;
+    }
+    status.textContent = "Demande reçue. Notre équipe vous recontacte rapidement.";
+    form.reset();
+  });
+
+  // Consent banner: the choice is stored per viewer. Analytics scripts must only load when window.consentAccepted is true.
+  var KEY = "epb_consent";
+  var banner = document.getElementById("consent");
+  function read() {
+    try { return localStorage.getItem(KEY); } catch (err) { return null; }
+  }
+  function save(value) {
+    try { localStorage.setItem(KEY, value); } catch (err) { /* storage unavailable: choice applies to this view only */ }
+  }
+  function apply(value) {
+    window.consentAccepted = value === "accepted";
+    banner.hidden = true;
+  }
+  var stored = read();
+  if (stored === "accepted" || stored === "refused") {
+    apply(stored);
+  } else {
+    window.consentAccepted = false;
+    banner.hidden = false;
+  }
+  banner.addEventListener("click", function (e) {
+    var choice = e.target.getAttribute("data-consent");
+    if (!choice) return;
+    save(choice);
+    apply(choice);
+  });
+})();
+</script>
