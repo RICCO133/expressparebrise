@@ -63,7 +63,7 @@ p { margin: 0 0 12px; max-width: 65ch; }
 
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 18px; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.02em; }
-.brand svg { height: 64px; width: auto; flex: none; }
+.brand svg { height: 96px; width: auto; flex: none; }
 .brand span { line-height: 1.1; }
 .phone { color: var(--ink); text-decoration: none; font-weight: 600; }
 
@@ -136,27 +136,17 @@ footer { border-top: 1px solid var(--line); padding-block: 22px; font-size: 0.85
 
 <header class="wrap topbar">
   <div class="brand">
-    <svg viewBox="0 0 150 86" role="img" aria-label="Express Pare-Brise, logo EPB">
-      <defs>
-        <radialGradient id="g-epb-1" cx="35%" cy="30%" r="75%">
-          <stop offset="0%" stop-color="#2F6FB8"/><stop offset="100%" stop-color="#0B3D7E"/>
-        </radialGradient>
-        <radialGradient id="g-epb-2" cx="35%" cy="30%" r="75%">
-          <stop offset="0%" stop-color="#3DAA5E"/><stop offset="100%" stop-color="#17703A"/>
-        </radialGradient>
-        <radialGradient id="g-epb-3" cx="35%" cy="30%" r="75%">
-          <stop offset="0%" stop-color="#FF9A40"/><stop offset="100%" stop-color="#E0620F"/>
-        </radialGradient>
-      </defs>
-      <circle cx="25" cy="25" r="23" fill="url(#g-epb-1)"/>
-      <circle cx="75" cy="25" r="23" fill="url(#g-epb-2)"/>
-      <circle cx="125" cy="25" r="23" fill="url(#g-epb-3)"/>
-      <g fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="26" text-anchor="middle" dominant-baseline="central">
-        <text x="25" y="26">E</text>
-        <text x="75" y="26">P</text>
-        <text x="125" y="26">B</text>
+    <svg viewBox="0 0 640 340" role="img" aria-label="Express Pare-Brise, logo F1">
+      <g transform="translate(320 200) skewX(-20)">
+        <text x="0" y="0" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="92" fill="#0E2A47" letter-spacing="2">EXPRESS</text>
       </g>
-      <text x="75" y="78" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="13" text-anchor="middle">Express Pare-Brise</text>
+      <rect x="20" y="150" width="40" height="9" rx="4.5" fill="#FF7A1A"/>
+      <rect x="32" y="167" width="28" height="9" rx="4.5" fill="#FF7A1A"/>
+      <rect x="44" y="184" width="16" height="9" rx="4.5" fill="#FF7A1A"/>
+      <rect x="606" y="150" width="28" height="9" rx="4.5" fill="#FF7A1A"/>
+      <rect x="606" y="167" width="20" height="9" rx="4.5" fill="#FF7A1A"/>
+      <rect x="606" y="184" width="12" height="9" rx="4.5" fill="#FF7A1A"/>
+      <text x="320" y="290" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="44" fill="#0E2A47" letter-spacing="12">PARE BRISE</text>
     </svg>
   </div>
   <a class="phone" href="tel:+33664884636">06 64 88 46 36</a>
